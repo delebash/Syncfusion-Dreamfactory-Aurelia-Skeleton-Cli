@@ -2,7 +2,5 @@ node_modules
 .idea
 .DS_STORE
 /src/dreamfactoryconfig.js
-/scripts/app-bundle.js
-/scripts/vendor-bundle.js
-/scripts/app-bundle.js.map
+/scripts/
 /fonts/
