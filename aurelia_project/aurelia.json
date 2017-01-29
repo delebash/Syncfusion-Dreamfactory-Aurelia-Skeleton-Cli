@@ -119,9 +119,10 @@
           "aurelia-fetch-client",
           {
             "name": "font-awesome",
-            "path": "../node_modules/font-awesome/css",
+            "path": "../node_modules/font-awesome/",
+            "main": "",
             "resources": [
-              "font-awesome.css"
+              "css/font-awesome.min.css"
             ]
           },
           {
@@ -131,10 +132,7 @@
             "deps": [
               "jquery"
             ],
-            "exports": "$",
-            "resources": [
-              "css/bootstrap.css"
-            ]
+            "exports": "$"
           },
           {
             "name": "aurelia-templating-resources",
@@ -156,12 +154,8 @@
       }
     ],
     "copyFiles": {
-      "../node_modules/font-awesome/fonts/FontAwesome.otf" : "../fonts",
-      "../node_modules/font-awesome/fonts/fontawesome-webfont.woff" : "../fonts",
-      "../node_modules/font-awesome/fonts/fontawesome-webfont.woff2" : "../fonts",
-      "../node_modules/font-awesome/fonts/fontawesome-webfont.ttf" : "../fonts",
-      "../node_modules/font-awesome/fonts/fontawesome-webfont.svg" : "../fonts",
-      "../node_modules/font-awesome/fonts/fontawesome-webfont.eot" : "../fonts"
+      "node_modules/font-awesome/fonts/*" : "../fonts",
+      "node_modules/bootstrap/dist/fonts/*": "../fonts"
     }
   }
 }
