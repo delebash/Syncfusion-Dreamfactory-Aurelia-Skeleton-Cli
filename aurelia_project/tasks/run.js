@@ -15,6 +15,7 @@ function onChange(path) {
 }
 
 function reload(done) {
+
   browserSync.reload();
   done();
 }
@@ -29,7 +30,7 @@ let serve = gulp.series(
       port: 9000,
       logLevel: 'silent',
       server: {
-        baseDir: ['.'],
+        baseDir: [project.run.basePath],
         middleware: [historyApiFallback(), function(req, res, next) {
           res.setHeader('Access-Control-Allow-Origin', '*');
           next();
@@ -46,13 +47,16 @@ let serve = gulp.series(
 
 let refresh = gulp.series(
   build,
-  reload
+  reload,
+copyFiles
 );
 
 let watch = function() {
   gulp.watch(project.transpiler.source, refresh).on('change', onChange);
   gulp.watch(project.markupProcessor.source, refresh).on('change', onChange);
   gulp.watch(project.cssProcessor.source, refresh).on('change', onChange);
+  gulp.watch(project.jsonfiles.source, refresh).on('change', onChange);
+
 };
 
 let run;

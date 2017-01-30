@@ -24,6 +24,12 @@
     "fileExtension": ".html",
     "source": "src/**/*.html"
   },
+  "jsonfiles": {
+    "id": "none",
+    "displayName": "None",
+    "fileExtension": ".json",
+    "source": "src/**/*.json"
+  },
   "cssProcessor": {
     "id": "none",
     "displayName": "None",
@@ -46,6 +52,9 @@
     "attributes": "src/resources/attributes",
     "valueConverters": "src/resources/value-converters",
     "bindingBehaviors": "src/resources/binding-behaviors"
+  },
+  "run": {
+    "basePath": "dist"
   },
   "testFramework": {
     "id": "jasmine",
@@ -119,10 +128,9 @@
           "aurelia-fetch-client",
           {
             "name": "font-awesome",
-            "path": "../node_modules/font-awesome/",
-            "main": "",
+            "path": "../node_modules/font-awesome/css",
             "resources": [
-              "css/font-awesome.min.css"
+              "font-awesome.css"
             ]
           },
           {
@@ -154,8 +162,13 @@
       }
     ],
     "copyFiles": {
-      "node_modules/font-awesome/fonts/*" : "../fonts",
-      "node_modules/bootstrap/dist/fonts/*": "../fonts"
+      "../node_modules/font-awesome/fonts/*.*": "../dist/fonts",
+      "./assets/css/fonts/*.*": "../dist/fonts",
+      "./assets/img/*.*": "../dist/img",
+      "../scripts/*.*": "../dist/scripts",
+      "./locales/**/*": "../dist/locales",
+      "data/**/*": "../dist/data",
+      "../index.html": "../dist"
     }
   }
 }

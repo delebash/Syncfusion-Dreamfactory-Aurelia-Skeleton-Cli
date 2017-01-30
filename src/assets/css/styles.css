@@ -1,8 +1,21 @@
 body {
   margin: 0;
+
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  src: local('Roboto ThinItalic'),local('Roboto-ThinItalic'),url(/fonts/Roboto-ThinItalic.ttf) format('truetype');
+}
+.dan
+{
+  font-family:    Roboto;
+  font-size:      40px;
 }
 
-p1:before {
+
+
+.test:before {
   font-family: 'FontAwesome';
   content:"\f0c9";
   padding:0 5px 0 15px;
