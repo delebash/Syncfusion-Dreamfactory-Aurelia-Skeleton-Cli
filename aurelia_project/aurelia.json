@@ -45,12 +45,6 @@
     "displayName": "Karma",
     "source": "test/unit/**/*.js"
   },
-  "copyCss": {
-    "output": "src/assets/css",
-    "sources": [
-      "node_modules/font-awesome/css/*.min.css"
-    ]
-  },
   "dist": {
     "output": "dist",
     "sources": [

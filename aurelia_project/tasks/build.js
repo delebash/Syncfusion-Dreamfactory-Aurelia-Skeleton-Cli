@@ -2,23 +2,28 @@ import gulp from 'gulp';
 import transpile from './transpile';
 import processMarkup from './process-markup';
 import processCSS from './process-css';
+import processSASS from './process-sass';
 import {build} from 'aurelia-cli';
 import project from '../aurelia.json';
 import dist from './dist';
+import clean from './clean';
 import copyFiles from './copy-files';
 import {CLIOptions} from 'aurelia-cli';
 
 export default gulp.series(
   readProjectConfiguration,
+  clean,
   gulp.parallel(
     transpile,
     processMarkup,
+    processSASS,
     processCSS
   ),
   writeBundles,
   dist,
   copyResorces
 );
+
 
 function readProjectConfiguration() {
   return build.src(project);
