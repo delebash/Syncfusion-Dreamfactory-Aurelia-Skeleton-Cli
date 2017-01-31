@@ -5,7 +5,6 @@ import project from '../aurelia.json';
 export default function copyFiles(done) {
   const filesToCopy = project.build.copyFiles;
   if (!filesToCopy) {
-    done();
     return;
   }
 
@@ -15,5 +14,4 @@ export default function copyFiles(done) {
     console.log(`Copying ${source} to ${target}`);
     gulp.src(source).pipe(gulp.dest(target));
   }
-  done();
 }

@@ -3,8 +3,8 @@ import browserSync from 'browser-sync';
 import historyApiFallback from 'connect-history-api-fallback/lib';
 import project from '../aurelia.json';
 import build from './build';
-import copyFiles from './copy-files';
 import {CLIOptions} from 'aurelia-cli';
+import copyFiles from './copy-files';
 
 function log(message) {
   console.log(message); //eslint-disable-line no-console
@@ -15,14 +15,12 @@ function onChange(path) {
 }
 
 function reload(done) {
-
   browserSync.reload();
   done();
 }
 
 let serve = gulp.series(
   build,
-  copyFiles,
   done => {
     browserSync({
       online: false,
@@ -47,16 +45,13 @@ let serve = gulp.series(
 
 let refresh = gulp.series(
   build,
-  reload,
-copyFiles
+  reload
 );
 
 let watch = function() {
   gulp.watch(project.transpiler.source, refresh).on('change', onChange);
   gulp.watch(project.markupProcessor.source, refresh).on('change', onChange);
   gulp.watch(project.cssProcessor.source, refresh).on('change', onChange);
-  gulp.watch(project.jsonfiles.source, refresh).on('change', onChange);
-
 };
 
 let run;

@@ -24,17 +24,17 @@
     "fileExtension": ".html",
     "source": "src/**/*.html"
   },
-  "jsonfiles": {
-    "id": "none",
-    "displayName": "None",
-    "fileExtension": ".json",
-    "source": "src/**/*.json"
+  "sassProcessor": {
+    "id": "sass",
+    "displayName": "Sass",
+    "fileExtension": ".scss",
+    "source": "src/assets/css/sass/index.scss"
   },
   "cssProcessor": {
     "id": "none",
     "displayName": "None",
     "fileExtension": ".css",
-    "source": "src/**/*.css"
+    "source": "src/assets/css/**/*.css"
   },
   "editor": {
     "id": "webstorm",
@@ -45,11 +45,24 @@
     "displayName": "Karma",
     "source": "test/unit/**/*.js"
   },
+  "copyCss": {
+    "output": "src/assets/css",
+    "sources": [
+      "node_modules/font-awesome/css/*.min.css"
+    ]
+  },
+  "dist": {
+    "output": "dist",
+    "sources": [
+       "./scripts/**/*",
+      "./index.html"
+    ]
+  },
   "paths": {
     "root": "src",
     "resources": "src/resources",
     "elements": "src/resources/elements",
-    "attributes": "src/resources/attributes",
+    "attributes ":"src/resources/attributes",
     "valueConverters": "src/resources/value-converters",
     "bindingBehaviors": "src/resources/binding-behaviors"
   },
@@ -162,13 +175,12 @@
       }
     ],
     "copyFiles": {
-      "../node_modules/font-awesome/fonts/*.*": "../dist/fonts",
-      "./assets/css/fonts/*.*": "../dist/fonts",
-      "./assets/img/*.*": "../dist/img",
-      "../scripts/*.*": "../dist/scripts",
+      "../node_modules/font-awesome/fonts/**/*": "../dist/fonts",
+      "../node_modules/bootstrap/dist/fonts/**/*": "../dist/fonts",
+      "./assets/css/bootswatch.paper/fonts/**/*": "../dist/fonts",
+      "./assets/img/**/*": "../dist/img",
       "./locales/**/*": "../dist/locales",
-      "data/**/*": "../dist/data",
-      "../index.html": "../dist"
+      "./data/**/*": "../dist/data"
     }
   }
 }
