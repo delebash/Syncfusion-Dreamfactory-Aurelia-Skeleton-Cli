@@ -1,4 +1,7 @@
 import environment from './environment';
+import dfconfig from './config/dreamfactoryconfig'
+import authConfig from '../src/services/authConfig';
+
 
 //Configure Bluebird Promises.
 Promise.config({
@@ -10,7 +13,14 @@ Promise.config({
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('resources');
+    .feature('resources')
+    .plugin('aurelia-api', config => {
+      config.registerEndpoint('auth',dfconfig.loginurl() );
+      config.registerEndpoint('api',dfconfig.database(),{headers: {"X-DreamFactory-API-Key": dfconfig.APP_API_KEY, "X-DreamFactory-Application-Name": dfconfig.APP_NAME}});
+    })
+.plugin('aurelia-authentication', baseConfig => {
+    baseConfig.configure(authConfig);
+  });
 
   if (environment.debug) {
     aurelia.use.developmentLogging();

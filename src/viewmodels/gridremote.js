@@ -1,48 +1,44 @@
 import {inject} from 'aurelia-framework';
-import {DreamFactoryApi} from '../services/dreamfactory-api'
 import {DreamFactoryAdapter} from '../services/syncfusionDreamFactoryAdapter';
-import {Utils} from '../services/utils';
-import  dreamfactoryconfig from '../services/dreamfactoryconfig'
+import {Endpoint} from 'aurelia-api';
+import {AurelaiAuthDreamfactory} from '../services/aurelia-auth-dreamfactory'
+import dfconfig from '../config/dreamfactoryconfig'
 
-@inject(DreamFactoryApi)
+@inject(Endpoint.of('api'),AurelaiAuthDreamfactory)
+
 export class GridRemote {
-  constructor(dfapi) {
-    this.dfapi = dfapi;
-
+  constructor(api, authservice) {
+    this.api = api;
+    this.authenticated = authservice.authenticated;
+    this.sessiontoken = authservice.sessiontoken;
   }
 
   attached() {
-    this.dfapi.login().then(response => {
-      if (response.session_id) {
-        //We are logged in
-        console.log(response)
-        this.getdata()
-      }
-    })
+    if (this.authenticated = false) {
+      this.auth.login();
+    }
+   this.getdata()
   }
 
-  //Use custom adapter to retrieve data from api and bind to syncfusion grid
-  //The problem is I am not able to import and use the custom adapter like I use it in ES5
-
   getdata() {
-    let token = Utils.getToken(dreamfactoryconfig.tokenKey);
+    if (this.authenticated = true) {
+      let datamanager = ej.DataManager({
+        url: "https://api.ageektech.com/api/v2/northwind/_table/customers",
+        adaptor: new DreamFactoryAdapter.syncfusionDreamFactoryAdapter,
+        headers: [{"X-DreamFactory-API-Key": dfconfig.APP_API_KEY, "X-DreamFactory-Session-Token": this.sessiontoken}]
+      });
 
-    let datamanager = ej.DataManager({
-      url: "https://api.ageektech.com/api/v2/northwind/_table/customers",
-      adaptor: new DreamFactoryAdapter.syncfusionDreamFactoryAdapter,
-      headers: [{"X-DreamFactory-API-Key": dreamfactoryconfig.APP_API_KEY, "X-DreamFactory-Session-Token": token}]
-    })
-
-    $("#Grid").ejGrid({
-      dataSource: datamanager,
-      allowPaging: true,
-      allowSorting: true,
-      isResponsive: true,
-      columns: [
-        {field: "first_name", headerText: "First Name", width: 110},
-        {field: "last_name", headerText: "Last Name", width: 110}
-      ]
-    });
+      $("#Grid").ejGrid({
+        dataSource: datamanager,
+        allowPaging: true,
+        allowSorting: true,
+        isResponsive: true,
+        columns: [
+          {field: "first_name", headerText: "First Name", width: 110},
+          {field: "last_name", headerText: "Last Name", width: 110}
+        ]
+      });
+    }
   }
 }
 

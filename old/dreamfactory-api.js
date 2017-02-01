@@ -36,7 +36,6 @@ export class DreamFactoryApi {
 
     return this.http.fetch(dreamfactoryconfig.dataurl(), {
       method: "POST",
-      body: json(dreamfactoryconfig.credentials()),
       headers: new Headers({
         "X-DreamFactory-API-Key": dreamfactoryconfig.APP_API_KEY,
         "X-DreamFactory-Session-Token": token
@@ -49,18 +48,3 @@ export class DreamFactoryApi {
   }
 }
 
-// login() {
-//   return this.http.fetch(dreamfactoryconfig.loginurl(), {
-//     method: "POST",
-//     body: json(dreamfactoryconfig.credentials())
-//   })
-//     .then(response => response.json())
-//     .then(data => {
-//       if (data.hasOwnProperty('session_token')) {
-//         Utils.setToken(dreamfactoryconfig.tokenKey, data.session_token);
-//         return true
-//       } else {
-//         return false
-//       }
-//     });
-// }

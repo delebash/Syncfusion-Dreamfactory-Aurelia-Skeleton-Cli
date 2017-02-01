@@ -4,6 +4,7 @@ export default {
 //--------------------------------------------------------------------------
   INSTANCE_URL:'https://api.ageektech.com',
   APP_API_KEY: '1fd07b6f9a10b16602189d794db0abe8a44108d8da59a83a9f5ab46d00132692',
+  APP_NAME: 'northwind-app',
   email:'dftester@ageektech.com',
   password: 'test12345',
   api: '/api/v2/',
@@ -15,6 +16,9 @@ export default {
   dataurl: function () {
   return this.INSTANCE_URL + this.api + this.db + this.service + this.serviceObject + this.overrideMethod;
 },
+  database: function () {
+    return this.INSTANCE_URL + this.api + this.db + this.service;
+  },
   loginurl: function () {
     return this.INSTANCE_URL + '/api/v2/user/session'
   },
