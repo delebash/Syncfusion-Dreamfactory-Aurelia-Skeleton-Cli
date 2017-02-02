@@ -5,7 +5,7 @@ export default {
   INSTANCE_URL:'https://api.test.com',
   APP_API_KEY: '',
   APP_NAME: 'northwind-app',
-  email:'tester@ageektech.com',
+  email:'ester@ageektech.com',
   password: 'test12345',
   api: '/api/v2/',
   db:'northwind/',
