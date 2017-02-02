@@ -28,13 +28,14 @@
     "id": "sass",
     "displayName": "Sass",
     "fileExtension": ".scss",
-    "source": "src/assets/css/sass/index.scss"
+    "source": "src/css/sass/index.scss",
+    "watch": "src/css/sass/**/*.scss"
   },
   "cssProcessor": {
     "id": "none",
     "displayName": "None",
     "fileExtension": ".css",
-    "source": "src/assets/css/**/*.css"
+    "source": "src/css/**/*.css"
   },
   "editor": {
     "id": "webstorm",
@@ -183,10 +184,7 @@
     "copyFiles": {
       "../node_modules/font-awesome/fonts/**/*": "../dist/fonts",
       "../node_modules/bootstrap/dist/fonts/**/*": "../dist/fonts",
-      "./assets/css/bootswatch.paper/fonts/**/*": "../dist/fonts",
-      "./assets/img/**/*": "../dist/img",
-      "./locales/**/*": "../dist/locales",
-      "./data/**/*": "../dist/data"
+      "./assets/**/*": "../dist/"
     }
   }
 }

@@ -1,8 +1,8 @@
 import {inject} from 'aurelia-framework';
-import {DreamFactoryAdapter} from '../services/syncfusionDreamFactoryAdapter';
+import {DreamFactoryAdapter} from '../services/syncfusion-dream-factory-adapter';
 import {Endpoint} from 'aurelia-api';
 import {AurelaiAuthDreamfactory} from '../services/aurelia-auth-dreamfactory'
-import dfconfig from '../config/dreamfactoryconfig'
+import dfconfig from '../config/dreamfactory-config'
 
 @inject(Endpoint.of('api'),AurelaiAuthDreamfactory)
 
