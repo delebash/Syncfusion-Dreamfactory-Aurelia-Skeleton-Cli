@@ -6,3 +6,4 @@ node_modules
 /fonts/
 /dist/
 /src/services/dreamfactoryconfig.js
+/src/config/dreamfactoryconfig.js
