@@ -25,7 +25,7 @@ export class GridRemote {
       let datamanager = ej.DataManager({
         url: "https://api.ageektech.com/api/v2/northwind/_table/customers",
         adaptor: new DreamFactoryAdapter.syncfusionDreamFactoryAdapter,
-        headers: [{"X-DreamFactory-API-Key": dfconfig.APP_API_KEY, "X-DreamFactory-Session-Token": this.sessiontoken}]
+        headers: [{"X-DreamFactory-Application-Name": dfconfig.APP_NAME,"X-DreamFactory-API-Key": dfconfig.APP_API_KEY, "X-DreamFactory-Session-Token": this.sessiontoken}]
       });
 
       $("#Grid").ejGrid({
