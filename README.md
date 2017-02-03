@@ -18,6 +18,12 @@ Download the release or master branch, unzip and run the following in project fo
 
     npm install    
 
+**Edit:**
+    
+     config/dreamfactory-config.js
+ 
+Update with your dreamfactory settings.
+
 **Run/Build using one of the aurelia-cli commands:**
 
     au run
