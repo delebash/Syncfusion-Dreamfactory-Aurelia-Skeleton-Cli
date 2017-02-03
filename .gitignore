@@ -1,10 +1,6 @@
 node_modules
 .idea
 .DS_STORE
-/src/dreamfactoryconfig.js
 /scripts/
-/fonts/
 /dist/
-/src/services/dreamfactoryconfig.js
-/src/config/dreamfactoryconfig.js
-/src/config/
+
