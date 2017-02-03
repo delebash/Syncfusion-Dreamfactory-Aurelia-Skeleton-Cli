@@ -1,7 +1,7 @@
 export default {
   endpoint: 'auth',
   loginUrl:'',
-  configureEndpoints: ['auth', 'api'],
+  configureEndpoints: ['auth', 'apfi'],
   accessTokenProp: 'session_token',
   accessTokenName:'token',
   loginRedirect : ''
