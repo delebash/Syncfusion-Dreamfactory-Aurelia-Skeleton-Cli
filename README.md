@@ -1,4 +1,4 @@
-## Aurelia Skeleton with a syncfusion grid connected to a dreamfactory api instance. ##
+## Aurelia Skeleton using a syncfusion grid connected to a dreamfactory api instance. ##
 
 **This project uses:**
 
