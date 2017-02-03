@@ -1,6 +1,0 @@
-node_modules
-.idea
-.DS_STORE
-/scripts/
-/dist/
-/src/config/dreamfactory-config.js
