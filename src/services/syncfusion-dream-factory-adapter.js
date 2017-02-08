@@ -2,15 +2,16 @@ export class DreamFactoryAdapter {
 
   static syncfusionDreamFactoryAdapter = new ej.ODataAdaptor().extend({
     options: {
+      "accept": "application/json; charset=utf-8",
       from: "table",
-      requestType: "json",
+      requestType: "get",
       sortBy: "order",
       select: "fields",
       skip: "skip",
       group: "group",
       take: "limit",
       search: "search",
-      count: "count",
+      count: "include_count",
       where: "filter",
       aggregates: "aggregates"
     },
@@ -43,6 +44,28 @@ export class DreamFactoryAdapter {
       "IS NOT IN": " IS NOT IN ",
       "IS IN": " IS IN "
     },
+    convertToQueryString: function (req, query, dm) {
+      if (dm.dataSource.url && dm.dataSource.url.indexOf("?") !== -1)
+        return $.param(req);
+      return "?" + $.param(req);
+    },
+    // convertToQueryString: function (req, query, dm) {
+    //   var res = [], tableName = req.table || "";
+    //   delete req.table;
+    //
+    //   if (dm.dataSource.requiresFormat)
+    //     req["$format"] = "json";
+    //
+    //   for (var prop in req)
+    //     res.push(prop + "=" + req[prop]);
+    //
+    //   res = res.join("&");
+    //
+    //   if (dm.dataSource.url && dm.dataSource.url.indexOf("?") !== -1 && !tableName)
+    //     return res;
+    //
+    //   return res.length ? tableName + "?" + res : tableName || "";
+    // },
     onPredicate: function (pred, query, requiresCast) {
       //   query._fromTable ="contact"
       var returnValue = "",
@@ -93,21 +116,30 @@ export class DreamFactoryAdapter {
     },
     beforeSend: function (dm, request, settings) {
 
-      var table = "", count = "", data = ej.parseJSON(settings.data);
-
-      if (data.table)
-        table = data.table;
-      if (data.count === true) {
-        delete data.count;
-        count = 'include_count=true';
+    },
+    insert: function (dm, data, tableName) {
+      let records = [];
+      records.push(data);
+      let expectedData = {resource: records};
+      return {
+        url: dm.dataSource.url.replace(/\/*$/, tableName ? '/' + tableName : ''),
+        data: JSON.stringify(expectedData)
       }
-      settings.contentType = "application/json; charset=utf-8";
-      settings.url = settings.url + table + '?method=GET&' + count + '';
-
-      delete data.params;
-      delete data.requiresCounts;
-      settings.data = JSON.stringify(data)
-    }
+    },
+    remove: function (dm, keyField, value, tableName) {
+      return {
+        type: "DELETE",
+        url: dm.dataSource.url.replace(/\/*$/, tableName ? '/' + tableName : '') + '/' + value
+      };
+    },
+    update: function (dm, keyField, value, tableName) {
+      return {
+        type: "PUT",
+        url: dm.dataSource.url.replace(/\/*$/, tableName ? '/' + tableName : '') + '/' + value[keyField],
+        data: JSON.stringify(value),
+        accept: this.options.accept
+      };
+    },
 
   });
 
@@ -141,9 +173,7 @@ export class DreamFactoryAdapter {
       return actual > expected;
     };
 
-
     $.extend(ej.data.operatorSymbols, this.syncfusiondmSymbols.operatorSymbols);
-
 
   }
 
