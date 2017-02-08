@@ -4,7 +4,7 @@ import {Endpoint} from 'aurelia-api';
 import {AurelaiAuthDreamfactory} from '../services/aurelia-auth-dreamfactory'
 import dfconfig from '../config/dreamfactory-config'
 
-@inject(Endpoint.of('api'),AurelaiAuthDreamfactory)
+@inject(Endpoint.of('api'), AurelaiAuthDreamfactory)
 
 export class GridRemote {
   constructor(api, authservice) {
@@ -17,7 +17,7 @@ export class GridRemote {
     if (this.authenticated = false) {
       this.auth.login();
     }
-   this.getdata()
+    this.getdata()
   }
 
   getdata() {
@@ -25,15 +25,30 @@ export class GridRemote {
       let datamanager = ej.DataManager({
         url: "https://api.ageektech.com/api/v2/northwind/_table/customers",
         adaptor: new DreamFactoryAdapter.syncfusionDreamFactoryAdapter,
-        headers: [{"X-DreamFactory-Application-Name": dfconfig.APP_NAME,"X-DreamFactory-API-Key": dfconfig.APP_API_KEY, "X-DreamFactory-Session-Token": this.sessiontoken}]
+        headers: [{
+          "X-DreamFactory-Application-Name": dfconfig.APP_NAME,
+          "X-DreamFactory-API-Key": dfconfig.APP_API_KEY,
+          "X-DreamFactory-Session-Token": this.sessiontoken
+        }]
       });
 
       $("#Grid").ejGrid({
         dataSource: datamanager,
+        toolbarSettings: {
+          showToolbar: true,
+          toolbarItems: ["add", "edit", "delete"]
+        },
+        editSettings: {
+          allowEditing: true,
+          allowAdding: true,
+          allowDeleting: true,
+          editMode: "dialog"
+        },
         allowPaging: true,
         allowSorting: true,
         isResponsive: true,
         columns: [
+          {field: "id", isPrimaryKey: true, isIdentity: true, width: 10},
           {field: "first_name", headerText: "First Name", width: 110},
           {field: "last_name", headerText: "Last Name", width: 110}
         ]
