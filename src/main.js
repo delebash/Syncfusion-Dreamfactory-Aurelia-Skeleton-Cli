@@ -2,6 +2,7 @@ import environment from './environment';
 import dfconfig from './config/dreamfactory-config'
 import authconfig from '../src/config/auth-config';
 
+import ejGrid from 'ej.grid';
 
 //Configure Bluebird Promises.
 Promise.config({
