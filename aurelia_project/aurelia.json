@@ -28,8 +28,8 @@
     "id": "sass",
     "displayName": "Sass",
     "fileExtension": ".scss",
-    "source": "src/css/sass/index.scss",
-    "watch": "src/css/sass/**/*.scss"
+    "source": "src/sass/index.scss",
+    "watch": "src/sass/**/*.scss"
   },
   "cssProcessor": {
     "id": "none",
@@ -108,6 +108,7 @@
         "name": "vendor-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
+          "node_modules/whatwg-fetch/fetch.js",
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
@@ -166,10 +167,16 @@
           },
           {
             "name": "ej",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "common/ej.core.min",
+            "path": "../node_modules/syncfusion-javascript",
+            "main": "Scripts/ej/common/ej.core.min",
             "deps": [
               "jquery"
+            ],
+            "resources": [
+              "Content/ej/web/ej.widgets.core.bootstrap.min.css",
+              "Content/ej/web/bootstrap-theme/ej.theme.min.css",
+              "Content/ej/web/responsive-css/ej.responsive.css",
+              "Content/ej/web/responsive-css/ejgrid.responsive.css"
             ],
             "exports": "ej"
           },
@@ -177,6 +184,31 @@
             "name": "ej.data",
             "path": "../node_modules/syncfusion-javascript/Scripts/ej",
             "main": "common/ej.data.min"
+          },
+          {
+            "name": "ej.touch",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "common/ej.touch.min"
+          },
+          {
+            "name": "ej.print",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "web/ej.print.min"
+          },
+          {
+            "name": "ej.globalize",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "common/ej.globalize.min"
+          },
+          {
+            "name": "ej.draggable",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "common/ej.draggable.min"
+          },
+          {
+            "name": "ej.unobtrusive",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "common/ej.unobtrusive.min"
           },
           {
             "name": "ej.pager",
@@ -237,6 +269,31 @@
             "name": "ej.editor",
             "path": "../node_modules/syncfusion-javascript/Scripts/ej",
             "main": "web/ej.editor.min"
+          },
+          {
+            "name": "ej.tooltip",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "web/ej.tooltip.min"
+          },
+          {
+            "name": "ej.toolbar",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "web/ej.toolbar.min"
+          },
+          {
+            "name": "ej.menu",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "web/ej.menu.min"
+          },
+          {
+            "name": "ej.radiobutton",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "web/ej.radiobutton.min"
+          },
+          {
+            "name": "ej.excelfilter",
+            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
+            "main": "web/ej.excelfilter.min"
           },
           {
             "name": "ej.grid",
