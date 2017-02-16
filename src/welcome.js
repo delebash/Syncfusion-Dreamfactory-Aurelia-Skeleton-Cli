@@ -17,7 +17,6 @@ export class Welcome {
 
   submit() {
     this.previousValue = this.fullName;
-  //  alert(`Welcome, ${this.fullName}!`);
   }
 
   canDeactivate() {
