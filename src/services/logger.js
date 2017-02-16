@@ -1,3 +1,5 @@
+import {LogManager} from "aurelia-framework";
+
 export class CustomLogAppender {
   constructor(){}
   debug(logger, message, ...rest){
@@ -13,3 +15,6 @@ export class CustomLogAppender {
     console.error(`ERROR [${logger.id}] ${message}`, ...rest);
   }
 }
+
+export let log = LogManager.getLogger('APP');
+

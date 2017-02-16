@@ -17,15 +17,16 @@
     "bluebird": "^3.4.1",
     "bootstrap": "^3.3.7",
     "extend": "^3.0.0",
-    "fetch": "^1.1.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "jquery-easing": "0.0.1",
     "jsrender": "^0.9.83",
     "jwt-decode": "^2.1.0",
+    "regenerator-runtime": "^0.10.1",
     "requirejs": "^2.3.2",
-    "syncfusion-javascript": "^14.4.20",
-    "text": "github:requirejs/text#latest"
+    "syncfusion-javascript": "^15.1.33",
+    "text": "github:requirejs/text#latest",
+    "whatwg-fetch": "^2.0.2"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -39,7 +40,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.10.3",
     "babel-plugin-transform-flow-strip-types": "^6.8.0",
     "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-latest": "^6.22.0",
     "babel-preset-stage-1": "^6.5.0",
     "babel-register": "^6.9.0",
     "browser-sync": "^2.13.0",
@@ -62,9 +63,10 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.0.2",
     "minimatch": "^3.0.2",
+    "node-sass": "^4.5.0",
     "rimraf": "^2.5.4",
     "through2": "^2.0.1",
-    "uglify-js": "^2.6.3",
+    "uglify-js": "https://github.com/mishoo/UglifyJS2#harmony-v2.7.5",
     "vinyl-fs": "^2.4.3",
     "vinyl-paths": "^2.1.0"
   }
