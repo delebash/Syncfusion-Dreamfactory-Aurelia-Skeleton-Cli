@@ -2,10 +2,10 @@ export default {
   //--------------------------------------------------------------------------
 //  DreamFactory 2.0 instance specific constants
 //--------------------------------------------------------------------------
-  INSTANCE_URL: 'https://api.test.com',
-  APP_API_KEY: 'test',
+  INSTANCE_URL: 'https://api.ageektech.com',
+  APP_API_KEY: '24b66b53bdb0d8209d55a6e541de2def9759f195aa8a254a8a40ff7f0c9d5dc4',
   APP_NAME: 'northwind-app',
-  email: 'test@test.com',
+  email: 'dftester@ageektech.com',
   password: 'test12345',
   api: '/api/v2/',
   db: 'northwind/',
@@ -14,9 +14,9 @@ export default {
   tokenKey: 'token',
   overrideMethod: '?method=GET',
   dataurl: function () {
-    return this.database() + this.serviceObject + this.overrideMethod;
+    return this.baseurl() + this.serviceObject + this.overrideMethod;
   },
-  database: function () {
+  baseurl: function () {
     return this.INSTANCE_URL + this.api + this.db + this.service;
   },
   loginurl: function () {
