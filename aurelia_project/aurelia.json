@@ -137,20 +137,6 @@
           "aurelia-fetch-client",
           "aurelia-api",
           "extend",
-          "jquery",
-          {
-            "name": "jquery.easing",
-            "path": "../node_modules/jquery.easing",
-            "main": "jquery.easing",
-            "deps": [
-              "jquery"
-            ]
-          },
-          {
-            "name": "jsrender",
-            "path": "../node_modules/jsrender",
-            "main": "jsrender.min"
-          },
           {
             "name": "aurelia-authentication",
             "path": "../node_modules/aurelia-authentication/dist/amd",
@@ -172,27 +158,7 @@
             "name": "bootstrap",
             "path": "../node_modules/bootstrap/dist",
             "main": "js/bootstrap.min",
-            "deps": [
-              "jquery"
-            ],
             "exports": "$"
-          },
-          {
-            "name": "ej",
-            "path": "../vendor/syncfusion",
-            "main": "scripts/ej.widget.all.min",
-            "deps": [
-              "jquery",
-              "jquery.easing",
-              "jsrender"
-            ],
-            "resources": [
-              "themes/ej.widgets.core.bootstrap.min.css",
-              "themes/bootstrap-theme/ej.theme.min.css",
-              "themes/responsive-css/ej.responsive.css",
-              "themes/responsive-css/ejgrid.responsive.css"
-            ],
-            "exports": "ej"
           },
           {
             "name": "aurelia-templating-resources",
@@ -216,9 +182,11 @@
     "copyFiles": {
       "../node_modules/font-awesome/fonts/**/*": "../dist/fonts",
       "../node_modules/bootstrap/dist/fonts/**/*": "../dist/fonts",
-      "./assets/**/*": "../dist/",
-      "../vendor/syncfusion/themes/common-images/**/*": "../dist/common-images",
-      "../vendor/syncfusion/themes/bootstrap-theme/images/**/*": "../dist/images"
+      "./assets/**/*": "../dist",
+      "../node_modules/jquery/dist/jquery.min.js": "../dist/vendor",
+      "../node_modules/jquery.easing/jquery.easing.min.js": "../dist/vendor",
+      "../node_modules/jsrender/jsrender.min.js": "../dist/vendor",
+      "../vendor/**/*": "../dist/vendor"
     }
   }
 }
