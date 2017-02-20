@@ -7,11 +7,14 @@ Bundle everything is slower then bundling certain libraries.  Also by using http
 Note:
 We are using the vendor folder for custom builds and/or libraries we do not want to pull from node_modules. In our case we have a custom build of syncfusion generated with [syncfusion's custom generator](http://csg.syncfusion.com/) with only the grid control.
 
-Current project is setup to bundle some libraries
+# Currently using a Hybrid Bundle approach: #
+Not bundling syncfusion, jquery,jsrender,jquery.easing
+
+ 
 
 
 
-# To bundle all #
+# To change project to bundle all #
 
 Change:
  
