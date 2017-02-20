@@ -18,6 +18,7 @@ export default gulp.series(
     processSASS,
     processCSS
   ),
+  clean,
   writeBundles,
   dist,
   copyResorces

@@ -140,19 +140,13 @@
           "jquery",
           {
             "name": "jquery.easing",
-            "path": "../vendor/syncfusion",
-            "main": "scripts/jquery.easing.1.3",
-            "deps": [
-              "jquery"
-            ]
+            "path": "../node_modules/jquery-easing/dist",
+            "main": "jquery.easing.1.3.umd.min.js"
           },
           {
             "name": "jsrender",
-            "path": "../vendor/syncfusion",
-            "main": "scripts/jsrender.min",
-            "deps": [
-              "jquery"
-            ]
+            "path": "../node_modules/jsrender",
+            "main": "jsrender.min.js"
           },
           {
             "name": "aurelia-authentication",
@@ -182,12 +176,12 @@
           },
           {
             "name": "ej",
-            "path": "../vendor/syncfusion",
-            "main": "scripts/ej.widget.all.min",
+            "path": "../vendor",
+            "main": "scripts/ej.web.all.min",
             "deps": [
               "jquery",
-              "jquery.easing",
-              "jsrender"
+              "jsrender",
+              "jquery.easing"
             ],
             "resources": [
               "themes/ej.widgets.core.bootstrap.min.css",
@@ -220,8 +214,8 @@
       "../node_modules/font-awesome/fonts/**/*": "../dist/fonts",
       "../node_modules/bootstrap/dist/fonts/**/*": "../dist/fonts",
       "./assets/**/*": "../dist/",
-      "../vendor/syncfusion/themes/common-images/**/*": "../dist/common-images",
-      "../vendor/syncfusion/themes/bootstrap-theme/images/**/*": "../dist/images"
+      "../vendor/themes/common-images/**/*": "../dist/common-images",
+      "../vendor/bootstrap-theme/images/**/*": "../dist/images"
     }
   }
 }
