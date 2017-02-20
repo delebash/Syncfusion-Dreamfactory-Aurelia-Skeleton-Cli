@@ -1,6 +1,8 @@
 
 
-Bundle everything is slower then bundling somethings
+Bundle everything is slower then bundling certain libraries.  Also by using http2 bundling is supposed to no longer be needed and will be slower, however [http2 compression is not optimized](http://engineering.khanacademy.org/posts/js-packaging-http2.htm) in the current implementation which actually results in slower performance in some cases.  I have chosen to bundle certain libraries.
+
+**One main motivation** is large libraries such as including all of syncfusion tracing during build takes to long so by removing this as a build dependency and moving it as a normal javascript resource build times greatly increas 
 
 Note:
 We are using the vendor folder for custom builds and/or libraries we do not want to pull from node_modules. In our case we have a custom build of syncfusion generated with [syncfusion's custom generator](http://csg.syncfusion.com/) with only the grid control.
