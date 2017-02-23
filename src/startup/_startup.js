@@ -8,6 +8,7 @@ import {configureResources} from './resources';
 import {LogManager} from 'aurelia-framework';
 import {CustomLogAppender} from '../services/logger';
 import {UndandledErrorHandler} from "../services/errorhandler"
+//import ej from 'ej'
 
 LogManager.addAppender(new CustomLogAppender());
 

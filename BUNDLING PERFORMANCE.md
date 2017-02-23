@@ -7,6 +7,27 @@ Bundle everything is slower then bundling certain libraries.  Also by using http
 Note:
 We are using the vendor folder for custom builds and/or libraries we do not want to pull from node_modules. In our case we have a custom build of syncfusion generated with [syncfusion's custom generator](http://csg.syncfusion.com/) with only the grid control.
 
+
+# Manual bootstrap aurelia if you want to #
+
+requirejs is aurelia's module loader
+    
+    <!--###Manual aurelia bootstrap method###-->
+    <script src="vendor/bluebird.core.js"></script>
+    <script src="vendor/fetch.js"></script>
+    <!--Paste no module scripts above requirejs-->
+    <script src="vendor/require.js"></script>
+    <script src="scripts/aurelia-bundle.js"></script>
+    
+    <script>
+      require(['aurelia-bootstrapper']);
+    </script>
+    <!--### End Manual aurelia bootstrap method###-->
+    
+    <!--###Auto aurlia bootstrap method###-->
+    <!--<script src="scripts/aurelia-bundle.js" data-main="aurelia-bootstrapper"></script>-->
+    
+
 # Currently using a Hybrid Bundle approach: #
 Not bundling syncfusion, jquery,jsrender,jquery.easing
 
