@@ -12,14 +12,13 @@ import {CLIOptions} from 'aurelia-cli';
 
 export default gulp.series(
   readProjectConfiguration,
-  clean,
+  cleandist,
   gulp.parallel(
     transpile,
     processMarkup,
     processSASS,
     processCSS
   ),
-
   writeBundles,
   dist,
   copyResorces
@@ -36,7 +35,15 @@ function writeBundles() {
 function copyResorces(done) {
   copyFiles(done);
 }
-
+function cleandist(done) {
+  if (!CLIOptions.hasFlag('watch')) {
+    console.log('build');
+    clean(done);
+  } else {
+    console.log('Skipping: already cleaned on watch');
+    done()
+  }
+}
 
 // if (CLIOptions.instance.args.length == 0){
 //   console.log('build')

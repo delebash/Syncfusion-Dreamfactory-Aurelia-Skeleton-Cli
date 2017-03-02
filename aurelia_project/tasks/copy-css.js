@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import cleanCSS  from 'gulp-clean-css';
-import concat  from 'gulp-concat';
 import project from '../aurelia.json';
 
 export default function copyCss() {
