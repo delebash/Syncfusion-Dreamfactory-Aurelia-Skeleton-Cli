@@ -24,7 +24,6 @@ export default gulp.series(
   copyResorces
 );
 
-
 function readProjectConfiguration() {
   return build.src(project);
 }
@@ -32,9 +31,11 @@ function readProjectConfiguration() {
 function writeBundles() {
   return build.dest();
 }
+
 function copyResorces(done) {
   copyFiles(done);
 }
+
 function cleandist(done) {
   if (!CLIOptions.hasFlag('watch')) {
     console.log('build');
