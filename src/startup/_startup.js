@@ -64,7 +64,7 @@ export class Startup {
 
     // UndandledErrorHandler.errorhandler();
 
-    aurelia.start().then(() => aurelia.setRoot());
+    aurelia.start().then(() => aurelia.setRoot('layouts/layout-main'));
   }
 }
 

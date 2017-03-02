@@ -1,8 +1,8 @@
 export default [
     {
-      route: ['', 'welcome'],
-      name: 'welcome',
-      moduleId: 'welcome',
+      route: ['', 'viewmodels/welcome'],
+      name: 'viewmodels/welcome',
+      moduleId: 'viewmodels/welcome',
       nav: true,
       title: 'Welcome'
     },
