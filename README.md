@@ -13,10 +13,16 @@
 **Installation:**
 
     npm install aurelia-cli -g
+or use the [yarn](https://yarnpkg.com/en/) package manager -- a dropin replacement for npm
+
+    yarn global add aurelia-cli
 
 Download the release or master branch, unzip and run the following in project folder.
 
-    npm install    
+    npm install
+or 
+
+    yarn install
 
 **Edit:**
     
