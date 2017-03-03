@@ -8,7 +8,7 @@
 - [aurelia-authentication ](https://aurelia-authentication.spoonx.org/)plugin
 - [syncfusion](https://www.syncfusion.com/products/javascript) grid
 - [syncfusion-dreamfactory-adaptor](https://github.com/delebash/syncfusion-dreamfactory-adaptor)
-- [bootswatch.paper](https://bootswatch.com/paper/)
+- [bootswatch.materia](https://bootswatch.com/4-alpha/materia/)
 
 **Installation:**
 
